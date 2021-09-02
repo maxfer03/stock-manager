@@ -28,7 +28,7 @@ path.post("/addItem", async (req, res) => {
 });
 
 path.get("/types", (req, res) => {
-  return res.json("ITEM TYPES");
+  return res.json("ITEM TYPES.");
 });
 
 export default path;
