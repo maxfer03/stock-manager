@@ -8,23 +8,11 @@ const prisma = new Prisma.PrismaClient();
 const path = Router();
 
 path.get("/items", async (req, res) => {
-  const items = await prisma.item.findMany();
-  return res.json(items);
+  return res.json("Items");
 });
 
 path.post("/addItem", async (req, res) => {
-  try {
-    const newItem = await prisma.item.create({
-      data: {
-        name: req.query.name.toLowerCase(),
-      },
-    });
-    console.table(newItem)
-    return res.json(newItem.name + " fue añadido al inventario");
-  } catch (error) {
-    console.error(error);
-    return res.status(400).send("ERROR");
-  }
+  return "addItem"
 });
 
 path.get("/types", (req, res) => {
