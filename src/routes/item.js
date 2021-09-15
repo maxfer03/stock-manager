@@ -1,32 +1,21 @@
-const branchPath = require("express").Router();
+const itemPath = require("express").Router();
 const { PrismaClient } = require("@prisma/client");
 
 const {branch, item} = new PrismaClient()
 
 
-branchPath.get("/", async (req, res) => {
-  const branches = await branch.findMany({
-    select: {
-      name: true,
-      items: true,
-      sub_branches: true
-    }
-  })
-  return res.json(branches);
+itemPath.get("/", async (req, res) => {
+  const items = await item.findMany()
+  return res.json(items);
 });
-branchPath.get("/:branchName", async (req, res) => {
-  const {branchName} = req.params
-  const oneBranch = await branch.findUnique({
-    select: {
-      name: true,
-      items: true,
-      sub_branches: true
-    },
+itemPath.get("/:itemName", async (req, res) => {
+  const {itemName} = req.params
+  const oneItem = await item.findUnique({
     where: {
-      name: branchName
+      name: itemName
     }
   })
-  return res.json(oneBranch)
+  return res.json(oneItem)
 })
 
-module.exports = branchPath;
+module.exports = itemPath;
