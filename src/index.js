@@ -1,8 +1,10 @@
 const express = require("express");
 const Prisma = require("@prisma/client");
 const morgan = require("morgan");
-/* import path from './src/routes/routes.js'
- */
+const branchPath = require("./routes/branch");
+const subBranchPath = require("./routes/subBranch");
+const itemPath = require("./routes/item");
+
 const prisma = new Prisma.PrismaClient();
 const server = express();
 const port = 3001;
@@ -22,7 +24,9 @@ server.use((req, res, next) => {
   next();
 });
 
-/* server.use("/", path); */
+server.use("/item", itemPath);
+server.use("/branch", branchPath);
+server.use("/subBranch", subBranchPath);
 
 server.get("/", (req, res) => {
   return res.send("home");
