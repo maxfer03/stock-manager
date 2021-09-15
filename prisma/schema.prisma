@@ -25,13 +25,24 @@ model Sub_branch {
 
 model Item {
   name            String   @id @unique
-  brand           String
+  desc            String
   stock           Int?
-  sub_branch_name String
-  sub_branch      Sub_branch   @relation(fields: [sub_branch_name], references: [name])
+  brand           String
+  provider        String
   branch_name     String
   branch          Branch   @relation(fields: [branch_name], references: [name])
+  sub_branch_name String
+  sub_branch      Sub_branch   @relation(fields: [sub_branch_name], references: [name])
+  size            String
+  cost            Int
+  tax_percent     Int @default(21)
+  final_cost      Int
+  profit          Int
+  price           Int
+  price_cash      Int         
+  total_sold      Int
   created_at      DateTime @default(now())
+  empty_at        DateTime?
   updated_at      DateTime @updatedAt
 
   @@map("item")
