@@ -23,3 +23,11 @@ objetivos:
     * margen de ganancia
     * precio de lista
     * precio en efectivo
+
+que falta en la estructura / dudas:
+* fecha de ingreso = Es la anteultima vez que se ingreso / la primera vez
+* fecha de ultimo ingreso
+* antiguedad de stock
+* antiguedad de precio
+* fecha de modificacion del costo = refiere al costo inicial
+
