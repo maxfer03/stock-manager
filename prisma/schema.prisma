@@ -36,8 +36,9 @@ model Item {
   size            String
   cost            Int
   tax_percent     Int @default(21)
-  final_cost      Int
   profit          Int
+  cash_discount   Int @default(15)
+  final_cost      Int
   price           Int
   price_cash      Int         
   total_sold      Int

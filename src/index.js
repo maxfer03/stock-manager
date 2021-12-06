@@ -21,9 +21,9 @@ server.use((req, res, next) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
+  next(); 
 });
-
+server.use(express.json());
 server.use("/item", itemPath);
 server.use("/branch", branchPath);
 server.use("/subBranch", subBranchPath);
